@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+// import { ThemeContext } from 'styled-components';
 import { Header, RepositoryInfo, Issues } from './styles';
+
 import logoImg from '../../assets/logo.svg';
 import api from '../../services/api';
 
 interface RepositoryParams {
   repository: string;
 }
+
 interface Repository {
   full_name: string;
   description: string;
@@ -29,6 +32,7 @@ interface Issue {
     login: string;
   };
 }
+
 const Repository: React.FC = () => {
   const [repository, setRepository] = useState<Repository | null>(null);
   const [issues, setIssues] = useState<Issue[]>([]);
@@ -57,6 +61,10 @@ const Repository: React.FC = () => {
 
     loadData(); */
   }, [params.repository]);
+
+  // current theme
+  // const { title } = useContext(ThemeContext);
+
   return (
     <>
       <Header>

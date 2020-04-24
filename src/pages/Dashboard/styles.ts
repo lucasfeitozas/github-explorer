@@ -4,10 +4,14 @@ import { shade } from 'polished';
 interface FormProps {
   hasError: boolean;
 }
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+`;
 
 export const Title = styled.h1`
   color: 48px;
-  color: #3a3a3a;
+  color: ${(props) => props.theme.colors.title};
   max-width: 450px;
   line-height: 56px;
   margin-top: 80px;
@@ -58,7 +62,7 @@ export const Repositories = styled.div`
   max-width: 700px;
 
   a {
-    background: #fff;
+    background: ${(props) => props.theme.colors.repoBackground};
     border-radius: 5px;
     width: 100%;
     padding: 24px;
@@ -89,11 +93,11 @@ export const Repositories = styled.div`
 
       strong {
         font-size: 20px;
-        color: #3d3d4d;
+        color: ${(props) => props.theme.colors.strong};
       }
       p {
         font-size: 18px;
-        color: #a8a8b3;
+        color: ${(props) => props.theme.colors.text};
         margin-top: 4px;
       }
     }
